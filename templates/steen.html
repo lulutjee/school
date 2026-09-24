@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Steen Papier Schaar</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="game">
+
+        <h1>STEEN PAPIER SCHAAR</h1>
+
+        <p class="subtitle">Versla de computer!</p>
+
+        <div class="players">
+
+            <div class="player">
+                <h2>Jij</h2>
+
+                <div class="choice">
+                    {% if player %}
+                        {{ player.capitalize() }}
+                    {% else %}
+                        ?
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="vs">
+                VS
+            </div>
+
+            <div class="player">
+                <h2>Computer</h2>
+
+                <div class="choice">
+                    {% if computer %}
+                        {{ computer.capitalize() }}
+                    {% else %}
+                        ?
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+
+        <h2 class="result">
+            {% if result %}
+                {{ result }}
+            {% else %}
+                Maak je keuze!
+            {% endif %}
+        </h2>
+
+
+        <form method="POST">
+
+            <div class="buttons">
+
+<button type="submit" name="choice" value="steen">
+    <img src="{{ url_for('static', filename='images/spel foto 1.png') }}" alt="Steen">
+    <span>STEEN</span>
+</button>
+
+<button type="submit" name="choice" value="papier">
+    <img src="{{ url_for('static', filename='images/spel foto 2.png') }}" alt="Papier">
+    <span>PAPIER</span>
+</button>
+
+<button type="submit" name="choice" value="schaar">
+    <img src="{{ url_for('static', filename='images/spel foto 3.png') }}" alt="Schaar">
+    <span>SCHAAR</span>
+</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+
